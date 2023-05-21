@@ -1,0 +1,940 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cours Transversal CN2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="eba7bec8-41fa-4470-adbe-9f2bd64fb1e2" class="page sans"><header><h1 class="page-title">Cours Transversal CN2</h1></header><div class="page-body"><p id="404c1976-f2ff-4034-b594-e6f41343f282" class="">
+</p><p id="ad16cb85-0477-4ddb-9a6f-0ad6eada126e" class="">
+</p><h1 id="624aea9a-c96f-4b80-b06f-1eebcf08d9ed" class="">Le cas</h1><p id="6eb49543-7d6d-44c1-9f2a-0e0f847b3a76" class="">Les technologies offrent la possibilité de numériser et reproduire des objets avec une extrême précision (jumeaux numériques). Combiné aux technologies blockchain et smart contract, il est aussi possible d’envisager la circulation des biens culturels de manière participative (curation collective). En particulier avec l’utilisation de smart contract. </p><p id="bef9cfa2-a11d-4053-b398-e99e71b41b72" class="">
+</p><p id="ec370fb1-cef8-4fd8-8b99-9149b87257cc" class="">
+</p><p id="7868f526-20aa-4ffb-8b84-6ef520ddfdd0" class="">“”” To remove ?</p><p id="c128f2e3-d0ca-4229-9246-bcc675ee1084" class="">Les jumeaux numériques sont en pleine croissance et permettent d’informatiser des modèles virtuels issue d’objets, oeuvres, ou quelconques objets physiques avec une grande précision. Dans l’art, les domaines d’applications sont multiples. Cela permet tout d’abord de pouvoir préserver les œuvres et de les garder accessibles quoi qu’il advienne aux originaux.  Cela permet également de pouvoir assurer leur distribution de manière éthique, démocratique, équitable et de pouvoir les exposer à travers le monde sans avoir à déplacer d’objets physiques, tant dans les musées traditionnels que virtuels et dans le metaverse. L’utilisateur aurait ainsi la possibilité d’admirer ces œuvres à travers son ordinateur ou un casque de réalité virtuelle. Dans le cas de biens culturels cela permettrait également de pouvoir partager sa gestion.</p><p id="61a341fd-0aec-47ad-b240-fcf16053500b" class="">
+</p><p id="d4f39971-8b61-4988-b4e0-a65ddae85c63" class="">
+L’idée de ce projet est d’écrire une guideline sur comment créer un Smart Contract avec un système de votation et de comprendre dans quelles mesures ils sont valable juridiquement. </p><p id="a83ff38d-8db4-4675-8f5d-06c355c5bdca" class="">L’utilisation de la blockchain permet de résoudre les problèmes de copyright, sécurité des données, souveraineté, confidentialité, ainsi que de provenance contestée. Les smarts contracts pourraient permettre d’imposer des règles juridiques sur ces œuvres. Nous pouvons aussi imaginer un système de circulation des biens culturels de manière participative (grâce à une curation collective).
+Nous devrons ainsi définir dans quelles mesures ces technologies pourraient être utilisées et quels seraient les avantages ou inconvénients à leur utilisation dans ce cas précis. De multiples questions juridiques viennent aussi se poser, tant sur l’aspect pratique, éthique ou bien même juridique ; notre tâche sera également de tâcher d’y répondre.</p><p id="7d001f7b-b656-43e1-b7d4-e30844c6ec5f" class="">“””</p><p id="783e9d02-07ce-49d4-acff-9675dc0980b1" class="">
+</p><h1 id="ee23e1e9-0d2c-4837-8c58-14b6771be687" class="">La problématique</h1><p id="440cb388-eb4f-4981-89d3-7e59d6ab3d34" class="">Comment écrire et développer un smart contract dans le domaine des biens culturels et quand est-ce qu’un smart contract est valable et contraignant juridiquement ?</p><h1 id="c81d7342-a9bf-4330-9cb2-4a36aab6ec37" class="">Lexique des concepts clés</h1><h2 id="a3c5d51e-4c79-49d0-a8b8-4ea40c52a319" class="">Biens culturels :</h2><p id="c1049917-0260-4cdf-9baa-f77aac3db959" class="">Un bien culturel est un bien faisant partie du patrimoine culturel d’un pays tel que des antiquités, des artéfacts archéologiques, manuscrit anciens, monument ou vestiges de monuments historiques, oeuvres d’art, etc... Il peut posséder une grande valeur historique, archéologique, esthétique, artistique, scientifique, ou bien même technique. Ces biens sont souvent protégés (importations illégales, trafics illicites, …) et préservés au vue de leurs grande valeurs culturelle. </p><p id="85335674-3a90-478e-b5ca-843d93ff712e" class="">
+</p><p id="28adc475-2e4a-4519-88f2-cf5f56d176f5" class="">L’article premier de la Convention pour la protection des biens culturels en cas de conflit armé, signée en 1954 à la Haye, nous donne la définition suivante des biens culturels :</p><p id="8bf0b24c-128d-46d0-9b22-a33910b7937d" class=""><em>« sont considérés comme biens culturels quels que soient leur origine et leur propriétaire : a) les biens, meubles ou immeubles, qui présentent une grande importance pour le patrimoine culturel des peuples… », [monuments, sites archéologiques, œuvres d’art, manuscrits, livres, collections scientifiques, collections d’archives ou de reproductions des biens, etc.]</em></p><p id="945c4b5e-6658-47c1-9777-6be6817bb973" class=""><em>» b) les édifices dont la destination principale et effective est de conserver ou d’exposer les biens culturels meubles […], c) les centres comprenant un nombre considérable de biens culturels […] ».</em></p><h2 id="99c70516-3b95-409a-afed-3a4283cec07b" class="">Jumeaux Numériques :</h2><p id="6c55c9e3-1c39-432c-b9fa-5c49339030eb" class="">Les jumeaux numériques sont des modèles virtuels qui reproduisent de manière détaillée et précise des objets ou des systèmes réels, en utilisant des technologies de modélisation 3D, d&#x27;imagerie et de simulation.</p><p id="2f1a8f39-1e6f-4fa3-b94c-ae1379928c80" class="">Dans le contexte des biens culturels, les jumeaux numériques sont utilisés pour préserver et documenter des artefacts historiques, artistiques et culturels. Les musées et les institutions patrimoniales peuvent créer des jumeaux numériques de pièces de collection et de sites archéologiques, afin de les rendre accessibles au public et de préserver leur état actuel.</p><p id="0951ec93-d19b-46bd-bfbc-9e5f159653c6" class="">Les jumeaux numériques peuvent également être utilisés pour la recherche et l&#x27;éducation, en permettant aux scientifiques, aux historiens et aux étudiants d&#x27;explorer virtuellement des artefacts et des sites sans avoir besoin de les manipuler physiquement.</p><p id="71750841-45f3-44a2-b7cf-44842c8de951" class="">En outre, les jumeaux numériques peuvent être utilisés pour la restauration et la conservation des biens culturels. En créant un modèle virtuel précis d&#x27;un objet endommagé, les restaurateurs peuvent expérimenter différentes techniques de réparation et de conservation pour déterminer la meilleure approche avant de procéder à des interventions physiques.</p><p id="b86fb8dc-90ff-4abd-a185-aa6c5fc0028f" class="">Enfin, les jumeaux numériques peuvent être utilisés pour la reproduction d&#x27;objets culturels. En créant un modèle 3D précis d&#x27;un objet, il est possible de le reproduire en utilisant des technologies telles que l&#x27;impression 3D, ce qui permet de créer des répliques exactes pour la recherche et l&#x27;exposition dans les musées et les galeries d&#x27;art.</p><p id="3b4b6b76-b27e-48ca-9052-5e86dc39481d" class="">
+</p><p id="efc9ed0d-e612-4aa6-8714-5719d0544b37" class="">
+</p><h2 id="a857290f-2dec-4e2c-8a3a-c71ad20c364a" class="">Blockchain :</h2><p id="cb061aa1-f49b-4e42-afe0-5f7690f193e3" class="">La blockchain est une technologie de stockage et de transmission d&#x27;informations, transparente, sécurisée et fonctionnant sans organe central de contrôle. Elle prend la forme d&#x27;une base de données distribuée et contient une liste d&#x27;opérations (ou transactions) groupées en blocs, qui sont liés les uns aux autres de manière sécurisée et ordonnée.</p><p id="0f8be5bb-67a1-4481-b22b-5fab8ab03eb9" class="">Ethereum est une plateforme décentralisée de blockchain, spécialement conçue pour permettre la création et l&#x27;exécution de &quot;smart contracts&quot; (contrats intelligents). Un smart contract est un programme informatique qui permet d&#x27;exécuter automatiquement des actions ou des transactions selon des conditions prédéfinies, sans avoir besoin d&#x27;une autorité centrale ou d&#x27;un intermédiaire.</p><p id="dad4338f-8515-4613-a3b9-1df99157e6dd" class="">
+</p><h2 id="bfc96979-7e1f-400f-8757-37685f636ed2" class="">Smart Contract :</h2><p id="a4751be9-d8bd-4c35-a20d-9d8db5405dbb" class="">Les smart contracts sont des protocoles informatiques qui facilitent, vérifient et exécutent automatiquement des contrats sur une blockchain, éliminant ainsi le besoin d&#x27;un intermédiaire. Ils sont auto-exécutables, transparents et décentralisés, ce qui signifie qu&#x27;aucune autorité centrale n&#x27;est requise pour les valider ou les superviser.</p><p id="123c8336-607f-4944-9f23-ec9b19a60469" class="">Dans le contexte des biens culturels, les smart contracts offrent une solution pour assurer la traçabilité, la provenance et la gestion des droits d&#x27;auteur des jumeaux numériques. De plus, ils peuvent permettre de mettre en place un système de curation collective, où les participants ont la possibilité de voter sur des décisions relatives à la gestion et à la distribution des œuvres d&#x27;art numérisées.</p><p id="fbbf2dfb-e0c7-4d2b-a03b-d52b329ec3b5" class="">Cependant, l&#x27;utilisation de smart contracts pour les biens culturels soulève des questions juridiques, notamment en ce qui concerne leur validité et leur force contraignante. Pour être considéré comme légalement contraignant, un smart contract doit respecter les principes généraux du droit des contrats, tels que l&#x27;offre, l&#x27;acceptation, la contrepartie, la capacité des parties à contracter et l&#x27;objet du contrat.</p><p id="330febbe-08dc-44b4-a20e-48d1eb3f431c" class="">Il est important de souligner que les lois relatives aux contrats varient d&#x27;une juridiction à l&#x27;autre, et les smart contracts pourraient ne pas être reconnus comme légalement contraignants dans certaines régions. Une attention particulière doit donc être accordée à la conformité avec les lois et réglementations locales pour garantir que les smart contracts soient valables et contraignants d&#x27;un point de vue juridique.</p><p id="38b9a4c8-a5ea-42da-934b-77a4d1c1509d" class="">
+</p><p id="f747ffe8-84ac-43c0-8931-fb3646141bb2" class="">
+</p><h1 id="7aa568ee-5e04-442f-9356-35190191c20a" class="">Le Livrable</h1><p id="5deb8a19-1851-489f-ace4-4efecc444733" class="">En guise de livrable, nous avons décidé d’utiliser Github pages, qui nous permet de mettre en ligne une page web. </p><p id="f51d6e19-db96-4456-b1b0-59d49682e050" class="">Elle contiendra une description du projet et des concepts clés, mais aussi une “guide line” permettant d’avoir toutes les étapes pour créer et déployer un smart contract sur une blockchain. Elle contiendra aussi un exemple ou template de smart contract basique ainsi que les articles de lois choisit et les explications concernant ce choix de législation.</p><p id="5a361272-5f1f-4f77-8988-e048673411be" class="">Cette page nous permettra donc de tout regrouper sur une seule page de sorte à ce qu’un utilisateur qui souhaiterait utiliser notre travail, puisse le faire le plus facilement possible.</p><p id="2d13041b-cf8d-4323-ae9c-1ad6df58b1f7" class="">
+</p><h1 id="c94aad03-53de-410e-9a79-10f50f886707" class="">Droit</h1><p id="5ad710a0-239e-465b-ab44-6f30ee5fe386" class="">
+</p><hr id="8af537ab-1977-4864-872b-25421ec839b9"/><h1 id="566cd81b-f18b-4f84-83d5-f98d5884cdc0" class="">Smart Contract</h1><h2 id="2641f65d-7e33-4427-ac3d-3821946be089" class="">Architecture choisie</h2><p id="051192d3-fd72-4e40-b96d-0d88d1f9c6b4" class="">L’architecture que nous avons décidé de choisir est illustrée dans l’image suivante :</p><figure id="7c1620dc-95ba-4b51-a918-561fa1417b72" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled.png"><img style="width:1062px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled.png"/></a></figure><p id="3fd340d2-3272-4ea9-b256-e2dde9404bb5" class="">
+</p><ol type="1" id="0e9ab6cb-264e-4788-b50b-89c7535536e1" class="numbered-list" start="1"><li><a href="http://remix.ethereum.org/">Remix</a> est une plateforme qui permet de facilement implémenter, tester et deployer des smart contracts.</li></ol><ol type="1" id="0615c5f1-9ef2-4438-8ada-e746d0a74ef7" class="numbered-list" start="2"><li><a href="https://www.tally.xyz/">Tally</a> et <a href="https://www.notion.sodefender.openzeppelin.com/">Defender</a>: Tally est une plateforme de gouvernance blockchain pour les DAOs, tandis que Defender fournit des outils pour la gestion des smart contracts. Tally permet aux membres de voter sur les propositions à l&#x27;aide de leurs tokens, tandis que Defender fournit des outils pour les développeurs pour construire, déployer et gérer des smart contracts. Il permet aussi aux utilisateurs d’interagir avec les smart contracts. </li></ol><ol type="1" id="8b385119-1df0-4249-b070-3949c7003db6" class="numbered-list" start="3"><li><a href="https://docs.soliditylang.org/en/v0.8.20/">Solidity</a> est le language de programmation dédié aux smart contract.</li></ol><ol type="1" id="403c2849-62ca-41a2-8258-51bf27c0fee2" class="numbered-list" start="4"><li><a href="https://www.openzeppelin.com/">OpenZeppelin</a> est un librairie informatique, permettant d’assister ses utilisateurs à la création de leurs smart contracts. Il est plutôt très commun en informatique de ne pas ré-inventer la roue. C’est ce que nous permet de faire cette librairie : ne pas ré-implémenter tout le code mais de ré-utiliser le sien. De plus cela permet d’éviter de créer des failles de sécurité ou bien même de produire un code moins efficace et rapide. OpenZeppelin nous octroie une sécurité accrue pour nos smart contracts.</li></ol><ol type="1" id="1f526b01-d133-422f-8b55-435b55a24e3f" class="numbered-list" start="5"><li>Dans le coin inférieur droit, nous avons d’abord <a href="https://ipfs.tech/">IPFS</a><strong> </strong>qui propose un service de stockage et de partage de fichier décentralisée, et donc nul besoin de passer par un serveur central comme le fait HTTP. Mais nous pouvons aller plus loin! Pour garantir la sécurité et une persistence des fichiers sur IPFS, <a href="https://www.pinata.cloud/">Piñata</a> est un autre service de <em><em><em><em><em><em>backup</em></em></em></em></em></em> qui nous permet aussi d’utiliser plus facilement IPFS</li></ol><p id="cb5462af-7f4b-4792-bf15-e03dbf5fc721" class="">
+</p><h2 id="45368c04-50e8-4331-8b2b-dba75f6aa11b" class="">Création du Token Contract</h2><p id="79ecf1e6-ea0f-47ad-b9b2-7e4ff4e605f5" class="">Pour coder un smart contract, nous allons utiliser le langage de programmation <a href="https://docs.soliditylang.org/fr/latest/">Solidity</a>.</p><p id="47dfbbbd-a460-49e1-83df-f39465b9ad36" class="">Pour implémenter les fonctionnalités requises il est important de se renseigner sur ce qui existe déjà et d’utiliser des <em>librairies </em>existantes. Les librairies sont généralement à la fois plus sûre et efficiente que de partir de zéro. C’est d’autant plus important pour les smarts contracts pour lesquelles la sécurité et le coût d’opération sont primordiaux.</p><p id="ee5f8891-8898-4b0a-9073-89e409f66583" class="">Une librairie populaire est <a href="https://www.openzeppelin.com/">OpenZeppelin</a>, qui notamment possède des modules pour gérer le système de votation (voir <a href="https://docs.openzeppelin.com/contracts/4.x/api/governance">Governance</a>). Leurs contrats suivent des standards reconnues qui peuvent être intégré facilement à d’autres applications.</p><p id="17c6bfe2-38f8-4781-9a0e-e9fc65833984" class="">Ils possèdent également un générateur intégrer le <em>Contracts Wizard</em><em><strong> </strong></em>permettant de créer des templates simples.</p><p id="075df977-27a9-4125-9029-f376d469fa9b" class="">En utilisant le <em><em><em><em>wizard</em></em></em></em> fournit par OpenZeppelin, nous pouvons facilement créer un smart contract. Nous allons donc d’abord nous rendre sur ce site <a href="https://wizard.openzeppelin.com/#erc721">Wizard</a>. Vérifiez que c’est bien le protocole ERC721 qui est sélectionné.</p><figure id="d934cf16-ee9a-4d37-9c9a-dc6b9f8be581" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%201.png"><img style="width:1227px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%201.png"/></a></figure><p id="0636b2cb-bdf4-4b71-9dbe-396067d8a212" class="">Dans la colonne de gauche plusieurs choix s’offrent à nous:</p><ul id="8638d8a1-b1fd-49c9-8992-bbcc73470169" class="bulleted-list"><li style="list-style-type:disc">Name: Correspond au nom que nous voulons assigner à notre token</li></ul><ul id="b842506b-b7c0-40a9-91e4-0e60adf5ec2b" class="bulleted-list"><li style="list-style-type:disc">Symbol: À l’abréviation du token comme fait avec les monnaies (francs suisses → CHF ; dollar américain → USD etc)</li></ul><ul id="d70406b3-12b0-402b-bd81-2b509d61a244" class="bulleted-list"><li style="list-style-type:disc">Premint: Correspond au nombre de token que nous souhaitons créer</li></ul><ul id="3de2cc95-4ee2-4ce1-a2e4-d0104284a746" class="bulleted-list"><li style="list-style-type:disc">Les fonctionnalités<ul id="3ba7b5cf-d09b-46a8-9712-f7b0729679e2" class="bulleted-list"><li style="list-style-type:circle">Mintable: Si l’on souhaite pouvoir créer des token en plus après le déploiement.<ul id="d9d29ce1-24d2-4ed5-9b52-f0211f7ce652" class="bulleted-list"><li style="list-style-type:square">Auto Increment Ids: Permet de créer des token avec un mécanisme qui génère automatiquement un unique ID pour les token.</li></ul></li></ul><ul id="633ea04b-35b8-469f-a20b-1d9801d81da7" class="bulleted-list"><li style="list-style-type:circle">Burnable: Si l’on souhaite fournir la possibilité de brûler (détruire) des tokens existants</li></ul><ul id="b0f7d03a-3b38-4a52-b2b4-f0aa63af1f58" class="bulleted-list"><li style="list-style-type:circle">Pausable: Si l’on souhaite pouvoir “mettre en pause” le smart contrat en cas de problème</li></ul><ul id="37da8aea-8466-4503-86cf-f675ec3b3f74" class="bulleted-list"><li style="list-style-type:circle">Votes: Si l’on souhaite permettre aux détenteurs de token de les utiliser afin de voter. Ils pourront aussi déléguer leurs votes à d’autres détenteurs de jetons.</li></ul><ul id="cce8cf8d-5e52-4743-855d-7c1fdbb9d5ce" class="bulleted-list"><li style="list-style-type:circle">Flash Minting:  Si l’on souhaite intégrer un mécanisme de prêt “flash”, ajoute la possibilité de prêter des tokens sans garantie qu’ils soient restitués dans la même transaction.</li></ul><ul id="875f9aba-6c47-4b5d-b14a-aedb3df175ed" class="bulleted-list"><li style="list-style-type:circle">Snapshots: Si l’on souhaite que des comptes privilégiés puissent stocker des snapshots des soldes qui pourront être récupérés ultérieurement. (Pour les votes on-chain, l’option Votes est préférable)</li></ul></li></ul><ul id="b59cc1fd-bbf5-48dc-998f-8130cac64b62" class="bulleted-list"><li style="list-style-type:disc">Le Control d’accès permet de restreindre l’accès aux fonctions du contrat ou à quel moement elles peuvent être executées. Il y a deux types de contrôles:<ul id="32559f69-5785-42a6-86a3-051700e25caf" class="bulleted-list"><li style="list-style-type:circle">Ownable: Il s’agit d’un simple méchanisme où un unique compte est autorisé pour exécuté toutes les fonctions requérent un accès privilégier.</li></ul><ul id="394b5a1e-95ba-46ad-b589-04266189aa8d" class="bulleted-list"><li style="list-style-type:circle">Roles: Il s’agit d’un méchanisme flexible qui permet de créer des roles séparés pour chaque actions privilégiées. Bien sûr un rôle peut être assigné à plusieurs comptes.</li></ul></li></ul><ul id="55667d9b-f6b7-4ba4-bfa8-5aa4b22aad4d" class="bulleted-list"><li style="list-style-type:disc">L’extensabilité: De base les Smart Contract sont immuable mais en utilisant un proxy il est possible de les changer.<ul id="9bcc8b30-89e8-461b-a7bc-b5cf2e8350bb" class="bulleted-list"><li style="list-style-type:circle">Transparent</li></ul><ul id="f513fd8c-bf5c-4888-ba3f-3906e9efae02" class="bulleted-list"><li style="list-style-type:circle">UUPS</li></ul></li></ul><ul id="8405dd8a-de1b-4f33-9519-4b1d84a15aa7" class="bulleted-list"><li style="list-style-type:disc">Les informations<ul id="b485cae9-413c-4210-ae75-d8f2779e1bab" class="bulleted-list"><li style="list-style-type:circle">Security Contact</li></ul><ul id="12c310d5-fccf-4ba1-8140-62093cf4e065" class="bulleted-list"><li style="list-style-type:circle">License</li></ul></li></ul><p id="b8f44acb-3015-417a-8b20-e94c6cd55c39" class="">
+</p><p id="27119d45-c223-4fa3-8ef8-31c6445a7e9d" class="">
+</p><p id="15c6d50e-4504-471b-8883-523626a0fa37" class="">Dans notre cas nous allons simplement utiliser:</p><ul id="a6d1a3a9-8fae-476b-96ca-89c7bce3e5a8" class="bulleted-list"><li style="list-style-type:disc">Mintable: Permet de pouvoir créer des tokens en plus après le déploiement.<ul id="ceefa198-2085-48bd-a2a2-78a11480cbea" class="bulleted-list"><li style="list-style-type:circle">Auto Incremend Ids: Permet de créer des token avec un mécanisme qui génère automatiquement un unique ID pour les token.</li></ul></li></ul><ul id="b8ad3d03-ebac-494e-a6d0-d90cef93208a" class="bulleted-list"><li style="list-style-type:disc">Pausable</li></ul><ul id="04a09b6b-6aff-43fe-a959-0c65d776ea2e" class="bulleted-list"><li style="list-style-type:disc">Votes</li></ul><ul id="5803531d-3cdd-40d8-b6c2-9b528ff615d0" class="bulleted-list"><li style="list-style-type:disc">Ownable</li></ul><p id="402b8f0e-a413-45dc-9007-d7365e9179c3" class="">
+</p><p id="8ee85f28-c00f-4057-8a99-18893c946f6a" class="">Expliquer pourquoi ERC721 (NFT) et pas ERC20 (tokens normaux).</p><p id="e2659cb1-1939-45ba-8cc3-9679a82317f1" class="">
+</p><p id="4a7b2af4-7d17-43e0-a8ed-a641cedc7fe4" class="">Voici le code du smart contract pour le token. Il y a plusieurs champs à modifier selon les besoins. </p><ul id="afa78384-5209-4fb3-ae3a-91af76a14f2a" class="bulleted-list"><li style="list-style-type:disc">_name: mettez le nom du token que vous souhaitez</li></ul><ul id="83a77ed6-b7bc-4527-8e14-f9e0e99bf36c" class="bulleted-list"><li style="list-style-type:disc">_symbol: mettez l’abréviation (3 lettres!) du token que vous souhaitez</li></ul><ul id="6733751f-1c6f-4db0-b214-65b498ebaed5" class="bulleted-list"><li style="list-style-type:disc">MAX_TOKEN_CIRCULATION: Le nombre de token que vous souhaitez avoir au maximum de disponible.</li></ul><ul id="9aecaa2a-e562-49e6-8ce0-f0bfec489fc5" class="bulleted-list"><li style="list-style-type:disc">VALUE_PER_TOKEN: La valeur à laquelle vous voulez vendre chaque token</li></ul><ul id="2002ee61-235c-4cfd-9278-39494fb24050" class="bulleted-list"><li style="list-style-type:disc">FEE_AMOUNT: La taxe (en pourcentage) qui sera donnée au créateur.</li></ul><pre id="77570d39-22f5-42c5-8266-ae2de8a633c8" class="code"><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import &quot;@openzeppelin/contracts/token/ERC721/ERC721.sol&quot;;
+import &quot;@openzeppelin/contracts/security/Pausable.sol&quot;;
+import &quot;@openzeppelin/contracts/access/Ownable.sol&quot;;
+import &quot;@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol&quot;;
+import &quot;@openzeppelin/contracts/token/ERC721/extensions/draft-ERC721Votes.sol&quot;;
+import &quot;@openzeppelin/contracts/utils/Counters.sol&quot;;
+
+contract MyToken is ERC721, Pausable, Ownable, EIP712, ERC721Votes {
+    using Counters for Counters.Counter;
+
+    Counters.Counter private _tokenIdCounter;
+
+    // Name of the token and its symbol
+    string private _name = &quot;MyFinalToken&quot;;
+    string private _symbol = &quot;MFT&quot;;
+
+    // number of pre-minted tokens
+    uint256 public constant MAX_TOKEN_CIRCULATION = 2;
+
+    // Value of each token to be sold in eth
+    uint256 public VALUE_PER_TOKEN = 0.001 ether;
+
+    // Fee amount to be paid to the owner on each sale (10% of the sale price)
+    uint256 public FEE_AMOUNT = 10;
+
+    // Keep track of the token balances of each address
+    mapping(address =&gt; uint256) private _tokenBalances;
+
+    // Mapping to store prices of tokens put on sale
+    mapping(uint256 =&gt; uint256) public tokenPrices;
+
+    // Mapping to store approved buyers for each token
+    mapping(uint256 =&gt; address) public tokenBuyers;
+
+    // Contract web page or IPFS file
+    string private _lawContract;
+
+    // Digital Twin file url or IPFS file
+    string private _digitalTwin;
+
+
+    constructor(string memory lawContract, string memory digitalTwin) ERC721(_name, _symbol) EIP712(_name, &quot;1&quot;) {
+        // set the base URI
+        _lawContract = lawContract;
+        _digitalTwin = digitalTwin;
+    }
+
+    // Getter function to return the _lawContract
+    function getlawContract() public view returns (string memory) {
+        return _lawContract;
+    }
+
+    // Setter function to change the _lawContract. Only callable by the owner.
+    function setlawContract(string memory newLawContract) public onlyOwner {
+        _lawContract = newLawContract;
+    }
+
+    // Getter function to return the contractWebPage
+    function getDigitalTwin() public view returns (string memory) {
+        return _digitalTwin;
+    }
+
+    // Setter function to change the contractWebPage. Only callable by the owner.
+    function setDigitalTwin(string memory newDigitalTwin) public onlyOwner {
+        _digitalTwin = newDigitalTwin;
+    }
+
+   
+
+    function buyToken() external payable {
+        // check if the payment is sufficient
+        require(msg.value &gt;= VALUE_PER_TOKEN, &quot;Insufficient payment&quot;);
+        
+        // check if the token supply has reached the maximum
+        require(_tokenIdCounter.current() &lt;= MAX_TOKEN_CIRCULATION, &quot;Token supply has reached the maximum&quot;);
+
+        // check if the buyer has already bought a token
+        require(_tokenBalances[msg.sender] == 0, &quot;You have already bought a token&quot;);
+
+
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(msg.sender, tokenId);
+
+        // Transfer the payment to the owner
+        payable(owner()).transfer(msg.value);
+
+        // Update the token balance of the buyer
+        _tokenBalances[msg.sender] += 1;
+    }
+
+
+
+
+    function sellToken(uint256 tokenId, uint256 salePrice, address buyer) external {
+        // check that the caller of the function is the owner of the token
+        require(msg.sender == ownerOf(tokenId), &quot;Caller is not the owner of the token&quot;);
+
+        // check that the salePrice is at least the VALUE_PER_TOKEN
+        require(salePrice &gt;= VALUE_PER_TOKEN, &quot;Sale price is less than the minimum value per token&quot;);
+
+        // check if the token is already on sale
+        require(tokenPrices[tokenId] == 0, &quot;Token is already on sale&quot;);
+
+        // check if the buyer has already bought a token
+        require(_tokenBalances[buyer] == 0, &quot;Buyer has already bought a token&quot;);
+
+        // put the token on sale and define the buyer
+        tokenPrices[tokenId] = salePrice;
+        tokenBuyers[tokenId] = buyer;
+    }
+
+    function buyToken_byID(uint256 tokenId) external payable {
+        // check that the token is for sale
+        require(tokenPrices[tokenId] != 0, &quot;Token is not for sale&quot;);
+
+        // check that the msg.sender is allowed to buy the token
+        require(msg.sender == tokenBuyers[tokenId], &quot;You are not allowed to buy this token&quot;);
+
+        // calculate the fee to be paid to the owner (10% of the sale price)
+        uint256 fee = (tokenPrices[tokenId] * FEE_AMOUNT) / 100;
+
+        // check that the value sent with the function is at least the token price
+        require(msg.value &gt;= tokenPrices[tokenId] + fee, string(abi.encodePacked(&quot;Payment is not enough. Don&#x27;t forget the fee which is of 10% of the sale price&quot;)));
+        
+
+        // get seller before transfer
+        address seller = ownerOf(tokenId);
+
+        // transfer the token from the seller to the buyer
+        _safeTransfer(seller, msg.sender, tokenId, &quot;&quot;);
+
+        // remove the token from sale and buyer&#x27;s approval
+        tokenPrices[tokenId] = 0;
+        tokenBuyers[tokenId] = address(0);
+
+        // send the remaining funds to the seller
+        payable(seller).transfer(msg.value - fee);
+
+        // send the fee to the owner
+        payable(owner()).transfer(fee);
+
+        // Update the token balance of the buyer
+        _tokenBalances[msg.sender] += 1;
+        _tokenBalances[seller] -= 1;
+    }
+
+    
+    function retrieveToken(address from, uint256 tokenId) public onlyOwner {
+        // Ensure the token exists
+        require(_exists(tokenId), &quot;ERC721: operator query for nonexistent token&quot;);
+
+        // Transfer token back to owner
+        _transfer(from, owner(), tokenId);
+
+        // Update the token balance of the owner
+        _tokenBalances[from] -= 1;
+    }
+
+
+
+
+    // The following functions are overrides required by Solidity.
+
+    function _afterTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+        internal
+        override(ERC721, ERC721Votes)
+    {
+        super._afterTokenTransfer(from, to, tokenId, batchSize);
+    }
+
+        function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
+    }
+
+    function safeMint(address to) public onlyOwner {
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+    }
+
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+        internal
+        whenNotPaused
+        override
+    {
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
+
+}</code></pre><p id="e6c1d924-06d3-438f-a09e-4d70d913a8b9" class="">
+</p><h3 id="c8387c17-40ae-4475-8823-1317fb879c03" class="">Déploiement avec Remix du token contract</h3><p id="ff7ce5ef-3889-4742-9e26-a3119d923d2f" class="">
+</p><p id="7841341c-8a13-41a8-b792-af58d7a2c118" class="">Aller sur le site de <a href="https://remix.ethereum.org">Remix</a>.</p><p id="7cb72e7a-70a3-45f1-b522-412009843c81" class="">
+</p><figure id="3a066f18-694a-47ba-afd7-f3b3ed4291e9" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%202.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%202.png"/></a></figure><p id="0b7bc733-b751-4753-b863-56ec4c26a1ad" class="">
+</p><p id="a151606c-8947-4810-a1ef-31f854921342" class="">Créé un nouveau workspace “blank”. Uploader les fichiers tokenContract et governorContract. Ouvrez le fichier tokenContract et toutes les dépendances nécessaires vont être ajoutées au workspace automatiquement.</p><p id="5de10cb2-c4a1-4969-a813-8873d7c88d4b" class="">
+</p><p id="416a5272-1c5f-4659-a97f-04593416cba4" class="">Dans la colonne de gauche cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Solidity Compiler</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>, aller dans les <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>advanced configurations</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> et cocher la case <em><em><em><em><em><em><em><em>Enable optimization</em></em></em></em></em></em></em></em> (laisser 200). Puis cliquer sur <em>Compile tokenContract.sol. </em>Vous aurez ensuite un vu vert qui apparaitra. </p><figure id="6e028a80-1072-405c-b760-82de2d8731d8" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%203.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%203.png"/></a></figure><p id="e1e2ed19-d6fe-415a-b125-cd58c3796082" class="">
+</p><p id="592ce184-c8ac-4064-9009-e2c70907229a" class="">Puis aller dans l’onglet <em><em><em><em><em><em><em><em><em><em>Deploy &amp; run Transactions</em></em></em></em></em></em></em></em></em></em> (situé sur la gauche). Choisir l’environnement (on choisira <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Injectec Provider</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> afin de le lier directement à notre <a href="https://metamask.io/">Metamask </a>et au bon réseau). </p><p id="f733018b-a44b-4bd2-ab03-f4d47075de92" class="">Cliquer ensuite sur le bouton de la flèche qui descend. Il faudra ensuite compléter les deux champs avec les liens vers les fichiers IPFS. Décocher la case <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Publish to IPFS</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>. Puis cliquer sur le bouton orange <em><em><em><em><em><em><em><em>transact</em></em></em></em></em></em></em></em>. Vous verrez dans la case <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Deployed Contracts</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> l’adresse du contrat publié. </p><p id="acda7cc7-afaf-4dd3-a67c-c2c8b5e93ef6" class="">Copiez l’adresse du contrat.</p><p id="c900f8ea-492b-4e54-b82f-e03ead013f40" class="">
+</p><figure id="b3c3a158-f59b-4a8d-80c1-69b441306b1b" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%204.png"><img style="width:368px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%204.png"/></a></figure><p id="7f5bc107-14ba-4c47-8330-7c81eb669ccd" class="">
+</p><figure id="9dff8aab-ac1a-4cf6-8c77-87dfa1b932c8" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%205.png"><img style="width:362px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%205.png"/></a></figure><p id="5e022a31-1fcb-4304-9418-17a09d2e34b5" class="">
+</p><figure id="25ca02c3-6c95-430b-8bb9-58ca1e50e91c" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%206.png"><img style="width:192px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%206.png"/></a></figure><p id="d434179a-b7c1-44a2-9d5c-17e73962f61f" class="">
+</p><p id="22f13901-06b4-4ee3-8f97-fe810db3a35d" class="">
+</p><h3 id="e81bdf5f-b390-4fdd-8b7f-d5804d9af0d3" class="">Deploiement avec Remix du governor contract</h3><p id="4bad1429-8cad-41ca-837c-d446495ece0f" class="">Ouvrez le fichier g<em><em><em><em><em><em><em><em><em><em>overnorContract.sol</em></em></em></em></em></em></em></em></em></em> puis aller dans <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Solidity Compiler</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> puis cliquer sur le bouton bleu pour compiler. Vous aurez à nouveau un vu vert.</p><p id="df321c1c-9286-4265-9d14-14f00feeaab7" class="">Ensuite aller dans <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Deploy &amp; Run Transactions </em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>et cliquer sur le flêche qui descend à côté du deploy et coller l’adresse du contrat du token précèdement copié (vous pouvez toujours le copier car il se trouve dans la case en dessous dans <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Deployed contracts</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>). Puis cliquer sur <em>Transact.</em></p><figure id="8a16aed9-44b6-46db-b2db-58fcef5c792f" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%207.png"><img style="width:368px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%207.png"/></a></figure><p id="848d2043-3537-4b76-bd0b-ebec05b1d5d2" class="">
+</p><p id="4ad1be20-c992-41e0-bea7-2579ecd97e67" class="">
+</p><h3 id="981e407c-1cd7-4631-9c47-795c7ecdcebe" class="">Ajouter le token contract sur Defender</h3><p id="db4f2615-127c-4159-8fc3-91f61afe1c0f" class="">Il faudra ensuite vous rendre sur <a href="https://defender.openzeppelin.com/">Defender</a> et cliquer sur le bouton <strong>Add Contract</strong> puis <strong>Import Contract</strong>. </p><p id="f8c171bb-0f4d-44b6-a424-430c2ae105fe" class="">
+</p><figure id="daa97f6f-7008-429a-b125-5a21a49d144c" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%208.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%208.png"/></a></figure><p id="0b51ea8d-833b-4bfb-8d71-a4e2f4ed58e2" class="">
+</p><p id="d9c4a5d9-d1c8-44cb-bd5d-155b3735a93d" class="">On choisir de donner un nom à notre contrat, le choix de la blockchain (eth) et copiera l’adresse du contrat. On cliquera sur <em><strong>Add</strong></em>.</p><p id="16a2273d-d7a2-4205-88d9-3f65bc649a82" class="">
+</p><figure id="1a060ae1-fae2-4c55-8f97-c3f39b4ea9e7" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%209.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%209.png"/></a></figure><p id="a39738eb-a7f5-4d0c-988a-b66646c3cd2c" class="">
+</p><p id="4d764eaa-3bd1-4c72-a10a-00d5d29358b3" class="">Normalement <em><em><em><em><em><em><em><em>Defender</em></em></em></em></em></em></em></em> ne parviendra par à obtenir le <em><em><em><em><em>ABI</em></em></em></em></em> (Application Binary Interface) qui permet la communication entre smart contracts et entités extérieurs comme des interfaces ou d’autres smart contracts. Dans ce cas, il faudra aller dans le <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Solidity Compiler</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> sur Remix et copier le <em><em><em>ABI</em></em></em> code.</p><p id="b8dd3c81-8ac9-4745-937f-98a21023a674" class="">
+</p><figure id="146bcd86-f47d-4973-b372-53395b548f4c" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2010.png"><img style="width:360px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2010.png"/></a></figure><p id="98554b5e-c4eb-44b9-bde7-4b9ccf5d9f58" class="">
+</p><p id="b87f4d82-c90b-4a21-a486-620cc4dd050f" class="">
+</p><h2 id="e8afb9ac-a551-48c2-8e74-bc75eb754de9" class="">Interagir avec le smart Contract avec Defender</h2><p id="1d4377c9-3f4d-400e-9a2c-3d9fd2e08227" class="">Tout d’abord vérifier que votre wallet est connect (en haut à droite).</p><p id="b81fe807-2a01-4941-9759-2274b359de4e" class="">Pour pouvoir acheter un token, il faudra aller sur Defender, cliquer sur le votre token que vous avez ajouté et cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em>New Proposal </em></em></em></em></em></em></em></em></em></em></em></em>puis sur <em><em><em><em><em><em><em><em><em><em><em><em>Admin action.</em></em></em></em></em></em></em></em></em></em></em></em></p><figure id="06ed54fb-450c-4717-8ae6-74747cb237c6" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2011.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2011.png"/></a></figure><p id="21b3d74b-68e0-48ad-bc7c-3baf57d2a77a" class="">
+</p><p id="fcac8436-89b4-4aec-ad73-451e3a5dfefd" class="">Choisissez la fonction <em><em><em><em><em><em><em><em>buyToken,</em></em></em></em></em></em></em></em> rentrez dans le champs <em><em><em><em><em>value </em></em></em></em></em>le prix du token (ici on a choisi 0.001 eth). Cocher la case <em><em><em>EOA</em></em></em> et choisissez votre portefeuille. Donner un titre à l’action et cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Create admin action</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>. </p><figure id="37bf4345-6510-4b3d-ab50-5a278d1e9cbf" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2012.png"><img style="width:796px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2012.png"/></a></figure><figure id="c902eac1-e9e0-4b39-b7b9-e3b883fc1c9e" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2013.png"><img style="width:819px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2013.png"/></a></figure><p id="1b36ce43-352c-4aa0-a924-7591cf056694" class="">
+</p><p id="d2923db2-dcf2-492d-93fc-f95c9e3d9564" class="">
+</p><p id="b8277431-5234-4bbd-9387-fa9d6d28f65f" class="">Ensuite cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Approve and Execute</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>.</p><figure id="2a44ce51-65e3-4c70-8658-06c18b32408b" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2014.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2014.png"/></a></figure><p id="90185c0a-2a94-4646-88f3-c63f2874bb5f" class="">
+</p><p id="b77858fe-05a5-4ae6-bb6a-e41d4c837597" class="">Vous aurez donc obtenu votre token (qui est comme dit plus haut, en réalité un NFT). Pour l’ajouter à votre metamask il suffit de copier l’adresse du contrat du token ainsi que de rentrer le id (qui est 0 vu que c’est le premier NFT minter).</p><p id="3d572e4f-41a0-4d1b-80ea-ac8311a9ed2b" class="">
+</p><p id="ba51e279-a466-4788-92a6-d137df2597ba" class="">
+</p><h2 id="1ca5c0a9-a3f3-4aa9-b772-3ac69b33a7dd" class="">Utilisation du Governor contract avec Tally</h2><p id="2f5472ad-b4ae-4819-8ce8-5a4b4b5287ba" class="">
+</p><p id="a4206e50-11a4-4ba0-aaa4-2966d49902a8" class="">Maintenant il faut aller sur <a href="https://www.tally.xyz/">Tally</a>. Cliquer sur <em><em><em><em><em><em><em><em><em>Add a DAO</em></em></em></em></em></em></em></em></em>. </p><figure id="79cf9a32-48e5-4194-8625-715e4b1f130f" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2015.png"><img style="width:1960px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2015.png"/></a></figure><p id="b9d1440e-786a-4ddc-927e-71fdf7775df5" class="">
+</p><p id="5382e109-8c3c-4a54-9ff6-d84663eb6543" class="">Puis sur <em><em><em><em><em>Get Started</em></em></em></em></em>.</p><figure id="2b5b2b32-9c55-4893-889c-e62926449cf7" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2016.png"><img style="width:1920px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2016.png"/></a></figure><p id="2e528eae-0527-4d2d-ba3e-85366e2600cc" class="">
+</p><p id="db09ad69-afb9-4791-b3a6-c20ac242899c" class="">Suivez les étapes pour connecter votre wallet.</p><p id="f41663e2-1d5f-4899-8aaf-3241e656b989" class="">
+</p><p id="e360a35e-5283-4575-b306-4b85c03f2d39" class="">Donner un nom à votre DAO ainsi qu’une description.</p><figure id="cdc32de9-6cb2-44e3-921b-d624777ead2f" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2017.png"><img style="width:1199px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2017.png"/></a></figure><p id="5fd34980-d978-46a7-86f4-a6a377816371" class="">
+</p><p id="81c9cc2e-55a1-4bd3-84e6-316d0a87835a" class="">Mettez l’adresse du contrat du Governor (que vous pouvez obtenir sur Remix) et choisissez la blockchain et cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Find Governor Contract</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>.</p><figure id="40d5d851-67f1-492c-beff-7d97b7fc4d30" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2018.png"><img style="width:1183px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2018.png"/></a></figure><p id="1071de06-6f54-4006-b594-eb8d166467d6" class="">
+</p><p id="fe25c308-b46f-443d-a378-df2f00f54d60" class="">Il est possible que vous ayez une erreur:</p><figure id="85a95bee-61b4-4455-9974-12f110693e15" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2019.png"><img style="width:1158px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2019.png"/></a></figure><p id="3b3e356d-f246-4188-b301-b8f618d85185" class="">
+</p><p id="c6eec68c-65e0-46aa-bb27-abd6b304f010" class="">Dans ce cas il faudra remplir les différents champs. Pour récupérer les <em><em><em><em>Start Block</em></em></em></em> il faut aller sur <a href="https://www.notion.soetherscan.io/">etherscan</a>. Sur votre wallet et prendre le numéro du block associé à la création des différents contrats (token + governeur). Puis cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em>Add Governor</em></em></em></em></em></em></em></em></em></em></em></em>.</p><p id="e2e6c14c-e49f-464d-85ba-310c57219c90" class="">
+</p><figure id="dd61ba09-3b19-45f3-ba8f-bace0bece14e" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2020.png"><img style="width:1166px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2020.png"/></a></figure><p id="a6d164d5-4946-41a0-b608-fab5aa2afb36" class="">
+</p><h3 id="81f44f81-f6e5-4bad-abfa-9f66ab824cea" class="">Création d’un vote</h3><p id="1ad6960f-ab97-4349-ac82-57479c2fc657" class="">
+</p><p id="6c6e1055-107f-4005-a09f-2f1a74bd4c03" class="">Cliquer sur <em><em><em><em><em><em><em><em><em>Create new proposal</em></em></em></em></em></em></em></em></em>.</p><figure id="1c7c2c72-6623-40a0-935d-019aaf9faaa2" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2021.png"><img style="width:1220px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2021.png"/></a></figure><p id="58fcd834-f578-4548-858a-9998effd17d1" class="">
+</p><p id="2e1aa3e2-0cc3-4175-8c24-76648128ead8" class="">Suivez les différentes étapes et remplissez les différents champs (titres, descriptions etc). Pour la partie 3 <em><em><em><em><em><em><em><em><em><em><em>Add actions.</em></em></em></em></em></em></em></em></em></em></em> Vous pouvez ne pas choisir d’action et faire un simple vote classique. </p><p id="71fa5b40-9293-416d-a10a-e628ff10f756" class="">A la fin cliquer sur <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>Submit on-chain</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>.</p><p id="0010e043-7a3b-4949-8242-59e318e83a23" class="">
+</p><p id="13cf4c92-30cb-49bb-ad7f-e1899b8e6ed9" class="">Une fois la période de délai passée, les votes peuvent commencer. Pour voter il suffit de cliquer sur la proposition de vote sur tally.</p><figure id="9fb78eb3-8442-41b1-9c5e-c7cc035cc09d" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2022.png"><img style="width:1202px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2022.png"/></a></figure><p id="4081f348-09ac-4269-834b-e2e7035102b6" class="">
+</p><p id="1771844b-1b3d-42cc-bbeb-6680448f395b" class="">Puis de cliquer sur <em><em><em><em><em><em><em><em><em>Vote on-chain.</em></em></em></em></em></em></em></em></em></p><figure id="547b7075-db96-4e73-ba97-47b83c21d77d" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2023.png"><img style="width:1142px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2023.png"/></a></figure><p id="0de85f0c-9c53-47f4-94ea-49fca3b0cbc0" class="">
+</p><p id="70ef5724-ce05-4f48-bad4-9d123a8d023e" class="">Après le délai de vote passé. On pourra voir le résultats sur la plateforme.</p><p id="a1dc6cf8-0723-4b30-97cb-98931aeb7b24" class="">
+</p><p id="f36cfcf9-9311-4f46-b84e-588c2861c797" class="">
+</p><p id="ee852e60-4b01-4095-9aba-b6d6261e56e9" class="">
+</p><h2 id="f3932da6-2e23-443e-a52c-9edadd138fe5" class="">Creation du Governance Contract</h2><p id="4de6f9b2-665a-4ae6-9c99-dffa3777ee6d" class="">Dans OpenZeppelin, un contrat de gouvernance fait référence à un smart contract conçu pour faciliter la prise de décision décentralisée et les processus de gouvernance au sein d&#x27;un système ou d&#x27;un protocole. Il fournit un cadre permettant aux parties prenantes de participer au vote, de proposer et d&#x27;approuver des changements, et de gérer les paramètres ou les règles du système.</p><p id="1494e49e-cb20-4034-a460-52b6060f77dc" class="">OpenZeppelin propose une bibliothèque appelée &quot;Governor&quot; qui offre un ensemble de contrats intelligents pour construire des mécanismes de gouvernance. Ces contrats permettent aux détenteurs de tokens ou aux membres d&#x27;un réseau de prendre collectivement des décisions.</p><p id="04911235-8992-4a68-bc14-12c6b5a101c9" class="">Voici les principaux composants et fonctionnalités que l&#x27;on retrouve généralement dans les contrats de gouvernance d&#x27;OpenZeppelin :</p><ul id="85fa9803-e9d2-42e4-ac69-7df2277556f9" class="bulleted-list"><li style="list-style-type:disc">Création de propositions : Le contrat de gouvernance permet aux participants de créer des propositions pour suggérer des changements ou des actions au sein du système. Ces propositions peuvent être soumises par les détenteurs de jetons, les délégués votants ou toute autre partie prenante éligible.</li></ul><ul id="f12d05ca-ee81-4a3d-a709-3b90497988bd" class="bulleted-list"><li style="list-style-type:disc">Vote : Le contrat de gouvernance comprend un mécanisme de vote qui permet aux détenteurs de tokens ou aux électeurs sélectionnés de voter sur les propositions.</li></ul><ul id="a8b7deff-3083-45aa-a87e-30bb1c5ed510" class="bulleted-list"><li style="list-style-type:disc">Exécution de la proposition : Une fois qu&#x27;une proposition a passé avec succès la période de vote et atteint un seuil ou des critères prédéfinis, le contrat de gouvernance peut exécuter l&#x27;action proposée. Il peut s&#x27;agir de déclencher des mises à jour de protocole, d&#x27;ajuster des paramètres, de distribuer des fonds ou d&#x27;initier d&#x27;autres changements au niveau du système.</li></ul><ul id="1c08bbef-776b-4cc2-8a85-341533e763c5" class="bulleted-list"><li style="list-style-type:disc">Pouvoir de vote et délégation : Les contrats de gouvernance comprennent souvent une fonctionnalité permettant de gérer le pouvoir de vote et la délégation. Les détenteurs de tokens peuvent déléguer leur pouvoir de vote à d&#x27;autres personnes, leur permettant ainsi de voter en leur nom. La délégation peut contribuer à assurer une participation active et une représentation au sein du processus de gouvernance.</li></ul><p id="04430c95-69ee-4ee2-98a6-349f842a218a" class="">Les contrats de gouvernance d&#x27;OpenZeppelin fournissent une base pour créer des processus de prise de décision transparents, décentralisés et dirigés par la communauté. Ils peuvent être personnalisés et étendus pour répondre aux exigences spécifiques de différents projets, plateformes ou protocoles visant à mettre en œuvre des mécanismes de gouvernance.</p><p id="3d1e9c4a-c54d-480a-a506-ab5870ca431f" class="">
+</p><p id="324ac5ae-8ca9-4075-bc3b-49b028cfa864" class="">Pour ce faire, nous allons à nouveau nous rendre sur le <a href="https://wizard.openzeppelin.com/#governor">Wizard</a> mais cette fois choisir l’onglet <em><em><em><em><em><em><em><em><em><em><em>Governor</em></em></em></em></em></em></em></em></em></em></em>. </p><figure id="878b9624-9fc8-4e53-bf3e-d63150cb25ef" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2024.png"><img style="width:1064px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/Untitled%2024.png"/></a></figure><p id="3dbf4ad3-0e40-4ee8-8a2b-42f3433e3cbe" class="">
+</p><p id="0010e638-4ae1-4f70-8cb1-94519b89824d" class="">Différents champs sont ouverts à nous:</p><p id="c9710e18-d272-4b58-a464-2204b95ed169" class="">Settings:</p><ul id="9dc80372-5afc-4db4-ae3e-18933d1afdf4" class="bulleted-list"><li style="list-style-type:disc">Name: Le nom qu’on souhaite donner au gouverneur.</li></ul><ul id="b3fd93fd-f5a8-49f3-b7bb-fd54dc0bd927" class="bulleted-list"><li style="list-style-type:disc">Voting Delay: Le délai que l’on souhaite avoir entre la création de la proposition et le début des votations. On peut écrire en toute lettres: 1 week, 15 days, 1 month, 2 blocks (relatif à la blockchain) etc.</li></ul><ul id="5f1872e3-9c25-4b74-a43d-83385bd0ea03" class="bulleted-list"><li style="list-style-type:disc">Voting Period: La période accordée aux participants d’exercer leur droit de vote. On peut écrire des valeurs similaires que dans Voting delay.</li></ul><ul id="e8ab4b11-c0ae-402c-802e-e8060e28ebbd" class="bulleted-list"><li style="list-style-type:disc">Proposal Threshold: Nombre minimum de votes qu&#x27;un compte doit avoir pour créer une proposition.</li></ul><ul id="f525abfa-c0ca-440b-bdc4-0e0956af31a2" class="bulleted-list"><li style="list-style-type:disc">Quorum: Quorum requis pour l&#x27;adoption d&#x27;une proposition.</li></ul><p id="e1bef164-df57-447d-aed3-b90de0ca1bc2" class="">…</p><p id="09d3ed25-c708-4fd2-b7db-a3afae8c1a6e" class="">
+</p><h1 id="4ef6b60a-0fd5-4e72-b5cd-9c360f4ea3a5" class="">IPFS &amp; Piñata</h1><p id="db0ca65b-6f0a-44bf-a7a2-7da596dcfb00" class="">
+</p><p id="1ab3626f-5ab7-411b-80f7-ac8770d6b85c" class="">IPFS, ou InterPlanetary File System, est un protocole et un réseau conçus pour créer une méthode de stockage et de partage de fichiers décentralisée. IPFS permet aux utilisateurs de partager des fichiers directement entre eux, au lieu de passer par un serveur central comme le fait le protocole HTTP traditionnel.</p><p id="ed4a8ae5-e419-4e82-802a-4a7790c72db2" class="">En ajoutant un fichier a IPFS, cela signifie que vous le téléchargez sur ce réseau décentralisé. Lorsque vous ajoutez un fichier à IPFS, vous recevez un hash unique qui sert d&#x27;adresse pour le fichier sur le réseau IPFS. Si vous avez un smart contract sur une blockchain, vous pouvez stocker le hash de votre fichier sur la blockchain pour garder l&#x27;accès aux données décentralisé et sécurisé, tout en restant accessible et vérifiable.</p><p id="86f8efdd-dfc6-4129-8978-58901fc46fc5" class="">Voici comment ajouter un fichier à IPFS :</p><ol type="1" id="25762576-020d-4f64-bcd0-d06695f893fd" class="numbered-list" start="1"><li>Installez IPFS à partir du site officiel (<a href="https://ipfs.io/">https://ipfs.io/</a>) et suivez les instructions d&#x27;installation.</li></ol><ol type="1" id="e8f8178c-6fa7-4645-ba78-5ce6495edf16" class="numbered-list" start="2"><li>Ouvrez l&#x27;interface desktop de IPFS et vous n’avez plus qu’à ajouter votre fichier en cliquant import</li></ol><ol type="1" id="0e86ef39-25f2-4892-800b-2692d745d262" class="numbered-list" start="3"><li>IPFS vous fournira un hash unique pour votre fichier que vous pouvez utiliser pour le référencer sur le réseau IPFS.</li></ol><p id="adf5d2d3-7cd0-41d8-a49b-f7b2386455ae" class="">
+</p><figure id="b827b67b-fc6a-4192-90ae-bf6204fe1c3e" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/ipfs.png"><img style="width:1918px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/ipfs.png"/></a></figure><p id="1f5bd401-dc17-4d74-a80a-4ff0e3effe37" class="">
+</p><p id="41b5ad54-2c37-488a-80f9-0b505a3c017a" class="">Pinata est un service qui facilite l&#x27;utilisation d&#x27;IPFS. Pinata assure que les fichiers restent disponibles sur le réseau IPFS, fournissant une sorte de &#x27;sauvegarde&#x27; pour vos fichiers.</p><p id="714eae20-0df6-4258-bc14-ac832cbf5e87" class="">Pour utiliser Pinata avec votre contrat intelligent :</p><ol type="1" id="f8d9921b-a5df-4d3f-af87-f646d868ad03" class="numbered-list" start="1"><li>Créez un compte sur Pinata.</li></ol><ol type="1" id="cbd7265e-d9b2-4eb9-8c16-d9e4ebf72126" class="numbered-list" start="2"><li>Une fois connecté, vous pouvez télécharger votre fichier de contrat intelligent sur Pinata. Ils l&#x27;ajouteront au réseau IPFS pour vous et vous fourniront un CID (Content Identifier, similaire à un hash).</li></ol><ol type="1" id="6a78e326-33b2-4b9d-8fa4-8fb2fa56d282" class="numbered-list" start="3"><li>Vous pouvez stocker ce CID sur la blockchain, ce qui garantit que votre fichier reste disponible sur le réseau IPFS.</li></ol><ol type="1" id="d98a6e1d-9777-444d-9e63-429b0cf023c3" class="numbered-list" start="4"><li>Quiconque possède le CID peut maintenant récupérer le fichier à partir d&#x27;IPFS, tout comme avec le hash. La différence est qu&#x27;avec Pinata, le fichier est garanti de rester disponible, même si aucun autre nœud sur le réseau ne le stocke.</li></ol><p id="b8dfecfb-33ef-4559-a020-c3c1144c9a25" class="">En résumé, Pinata fournit un service qui rend IPFS plus fiable et plus facile à utiliser car vous pouvez rajoutez tout un dossier d’un trait également. Il est particulièrement utile si vous stockez des données importantes sur IPFS, comme un fichier de contrat intelligent, que vous devez vous assurer de rester disponible.</p><p id="7431b678-5900-4a36-8bfb-fdc1d6f39193" class="">
+</p><figure id="96cb0f28-4b7e-4946-8bb2-706e126b89ef" class="image"><a href="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/pinata.png"><img style="width:1912px" src="Cours%20Transversal%20CN2%20eba7bec841fa4470adbe9f2bd64fb1e2/pinata.png"/></a></figure><h2 id="f20947e2-283f-4142-9798-62ec9fb18f6f" class="">Accéder au fichier</h2><p id="ced45139-c8ec-4ce1-bc07-ea7ab961833b" class="">C’est très simple, vous n’avez qu’à accéder au fichier grâce au CID et le lien donnée par le service IPFS ou Piñata suivant:</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="51b47cb8-3af4-4f57-9c3c-787932ad6b1e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><a href="https://ipfs.io/ipfs/">https://ipfs.io/ipfs/</a>&lt;CID&gt;
+<a href="https://gateway.pinata.cloud/ipfs/">https://gateway.pinata.cloud/ipfs/</a>&lt;CID&gt;</div></figure><p id="78199d32-3e6d-4f1d-ba5e-9688955325b4" class="">
+</p><hr id="d733da1a-e48e-4579-807a-8656f49174ab"/><h1 id="de5ba587-3071-4e61-957c-5bdc9954a8b4" class="">Bibliographie</h1><p id="e2fd4b4b-ef64-4164-a937-b0520aa534e7" class="">
+</p></div></article></body></html>
